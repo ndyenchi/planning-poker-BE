@@ -106,7 +106,7 @@ public class WsController {
             }
             issue.setStatus(false);
             issuesRepo.save(issue);
-            return ResponseHelper.GenerateResponse(true, "revealCard", "REVEAL", issuesRepo.findByGame_Url(revealCardResponse.getUrl()), HttpStatus.OK);
+            return ResponseHelper.GenerateResponse(true, "revealCard", "REVEAL", issuesService.issuesList(revealCardResponse.getUrl()), HttpStatus.OK);
         } catch (Exception e) {
             System.out.println(e);
             return ResponseHelper.GenerateResponse(false, e.getMessage(), HttpStatus.OK);
